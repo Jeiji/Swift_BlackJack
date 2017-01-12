@@ -14,6 +14,7 @@
 		30091D8C1E26B75E009645AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30091D8A1E26B75E009645AE /* LaunchScreen.storyboard */; };
 		30091D971E26B75E009645AE /* Stack_ViewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30091D961E26B75E009645AE /* Stack_ViewsTests.swift */; };
 		30091DA21E26B75E009645AE /* Stack_ViewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30091DA11E26B75E009645AE /* Stack_ViewsUITests.swift */; };
+		30091DB01E26B9F2009645AE /* actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30091DAF1E26B9F2009645AE /* actions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		30091D9D1E26B75E009645AE /* Stack ViewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stack ViewsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30091DA11E26B75E009645AE /* Stack_ViewsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack_ViewsUITests.swift; sourceTree = "<group>"; };
 		30091DA31E26B75E009645AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30091DAF1E26B9F2009645AE /* actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = actions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				30091D881E26B75E009645AE /* Assets.xcassets */,
 				30091D8A1E26B75E009645AE /* LaunchScreen.storyboard */,
 				30091D8D1E26B75E009645AE /* Info.plist */,
+				30091DAF1E26B9F2009645AE /* actions.swift */,
 			);
 			path = "Stack Views";
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				TargetAttributes = {
 					30091D7D1E26B75E009645AE = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = SCP56JA353;
 						ProvisioningStyle = Automatic;
 					};
 					30091D911E26B75E009645AE = {
@@ -260,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30091D841E26B75E009645AE /* ViewController.swift in Sources */,
+				30091DB01E26B9F2009645AE /* actions.swift in Sources */,
 				30091D821E26B75E009645AE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,6 +415,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = SCP56JA353;
 				INFOPLIST_FILE = "Stack Views/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.CodingDojo.Stack-Views";
@@ -422,6 +428,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = SCP56JA353;
 				INFOPLIST_FILE = "Stack Views/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.CodingDojo.Stack-Views";
@@ -503,6 +510,7 @@
 				30091DA81E26B75E009645AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		30091DA91E26B75E009645AE /* Build configuration list for PBXNativeTarget "Stack ViewsTests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +519,7 @@
 				30091DAB1E26B75E009645AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		30091DAC1E26B75E009645AE /* Build configuration list for PBXNativeTarget "Stack ViewsUITests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +528,7 @@
 				30091DAE1E26B75E009645AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

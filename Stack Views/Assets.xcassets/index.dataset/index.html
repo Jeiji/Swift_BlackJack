@@ -1,0 +1,163 @@
+<HTML>
+<HEAD>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<META NAME="description" CONTENT="A full deck of Playing Card Icons">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=ISO-8859-1">
+<META NAME="keywords" CONTENT="Playing Cards, deck of cards, deck, cards, icons, images">
+<TITLE>Playing Cards</TITLE>
+<script type="text/javascript">
+
+function DeckBuilder(){
+  var self = this;
+  this.create = self.create = function(){
+      var deck = [];
+      var suits = ['h', 'd', 'c', 's'];
+      var name = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'j', 'q', 'k'];
+      for (var i  = 0; i < suits.length; i++){
+          for (var j = 0; j < name.length; j++){
+              var card = [];
+              card[0] = suits[i];
+              card[1] = name[j];
+              if (typeof (name[j]) === 'number') card[2] = name[j];
+              else card[2] = 10;
+              deck.push(card);
+          }
+      }
+      return deck;
+  }
+  this.deck = self.create();
+  this.shuffle = function() {
+    var m = this.deck.length, t, i;
+    while (m) {
+      i = Math.floor(Math.random() * m--);
+      t = this.deck[m];
+      this.deck[m] = this.deck[i];
+      this.deck[i] = t;
+    }
+    return this;
+  }
+  this.reset = function() {
+      this.create();
+  }
+  this.dealcard = function() {
+      this.shuffle();
+      var card = this.deck[0];
+      this.deck.shift();
+      return card;
+  }
+}
+
+function PlayerMaker(name){
+  this.name = name;
+  this.hand = [];
+  this.draw = function(val) {
+      for( i = 0 ; i < val ; i++ ){
+      var card = Deck.dealcard();
+      this.hand.push(card);
+      }
+      return this;
+  }
+  this.discard = function() {
+      this.hand.pop();
+      return this;
+  }
+  this.show = function() {
+      console.log(this.hand);
+      return this;
+  }
+}
+
+Deck = new DeckBuilder();
+var player;
+console.log(player);
+</script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    var handval = 0;
+    $('form').submit(function(){
+      $('#main').show("slow", function(){
+        $('form').hide();
+        Deck.create();
+        var player_name =  $('input[name=player_name]').val();
+        player = new PlayerMaker( player_name );
+        console.log('Just made'+player);
+        player.draw(2);
+        var cards = player.hand
+        console.log('Cards!');
+        console.log(cards);
+          for(card in cards ){
+            console.log(cards[card]);
+            var img = cards[card][0]+cards[card][1]+'.png';
+            handval+=cards[card][2]
+          $('#main').append("<img src='"+img+"'>")
+          $('#handval').html(handval)
+        }
+        console.log(handval);
+      })
+      return false;
+    })
+    $('#hit').click(function(){
+      $('#main').html('<div id="handval"></div>')
+      handval=0;
+      console.log(player);
+      console.log(player.name);
+      player.draw(2)
+      var thishand = player.hand
+      console.log('this Hand!');
+      console.log(thishand);
+      for(card in thishand ){
+        console.log(thishand[card]);
+        var img = thishand[card][0]+thishand[card][1]+'.png';
+        handval+=thishand[card][2]
+      $('#main').append("<img src='"+img+"'>")
+      $('#handval').html(handval)
+    }
+    })
+
+  })
+</script>
+
+</HEAD>
+<BODY BGCOLOR=#006633  TEXT=#e1ffd7 LINK=#FFFFFF VLINK=#FFFFFF>
+<CENTER>
+<TABLE BORDER=0 CELLSPACING=10 CELLPADDING=10>
+<TR>
+<TD>
+<IMG SRC="b1pt.png"><BR>
+<IMG SRC="b1fh.png"><BR>
+<IMG SRC="b1pb.png"><BR>
+</TD>
+<TD>
+<IMG SRC="b1pl.png">
+<IMG SRC="b1fv.png">
+<IMG SRC="b1pr.png">
+</TD>
+<TD><IMG SRC="jb.png"></TD>
+<TD VALIGN=CENTER><STRONG>Playing Cards</STRONG></TD>
+<TD><IMG SRC="jr.png"></TD>
+<TD>
+<IMG SRC="b2pl.png">
+<IMG SRC="b2fv.png">
+<IMG SRC="b2pr.png">
+</TD>
+<TD>
+<IMG SRC="b2pt.png"><BR>
+<IMG SRC="b2fh.png"><BR>
+<IMG SRC="b2pb.png"><BR>
+</TD>
+</TR>
+<TR></TR>
+</TABLE>
+<form id="player" class="" action="index.html" method="post">
+  <input type="text" name="player_name">
+  <input type="submit" name="" value="Join Game">
+</form>
+<div id="main">
+  <div id="handval"></div>
+</div>
+<div class="stupid">
+  <button id='hit' type='button' name='hit'>Hit Me</button>
+  <button type='button' name='reset'>Restart</button>
+</div>
+</BODY>
+</HTML>
